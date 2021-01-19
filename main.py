@@ -2,8 +2,13 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
 import time
+import termcolor
+import os
+
 def showPicture():
+    os.system('color')
     pattern_input = int(input("Input Pattern: "))
     if (pattern_input == 1):
         pattern_a()
@@ -45,11 +50,11 @@ def pattern_c():
             printDiamond(i, count, num_di, 1)
             count += 1
             if (i == num_line):
-                print("*" * count, end="")
+                print(termcolor.colored("*", 'yellow') * count, end="")
                 print("")
             if (i <= num_line - 1):
                 count_2 += 1
-                print("*" * ((count_2 * 2) + 1))
+                print(termcolor.colored("*", 'yellow') * ((count_2 * 2) + 1))
         count = 0
         count_2 = num_line+1
         for i in range(num_line+1, 0, -1):
@@ -58,23 +63,36 @@ def pattern_c():
             printDiamond(i, count, num_di, 2)
             count += 1
             if (i == num_line+1):
-                print("*" * ((num_line * 2) + 1), end="")
+                print(termcolor.colored("*", 'yellow') * ((num_line * 2) + 1), end="")
                 print("")
             if (i <= num_line):
                 count_2 -= 1
-                print("*" * ((count_2 * 2) - 1))
+                print(termcolor.colored("*", 'yellow') * ((count_2 * 2) - 1))
 
 def printDiamond(i, count, num_di, checkUpDown):
     # 1=Up, 2=Down
     if (checkUpDown == 1):
         for j in range(num_di-1):
-            print("*" * ((count * 2) + 1), end="")
-            print(" " * (i * 2), end="")
+            if (j % 3 == 0):
+                print(termcolor.colored("*", 'yellow') * ((count * 2) + 1), end="")
+                print(" " * (i * 2), end="")
+            elif (j % 3 == 1):
+                print(termcolor.colored("*", 'green') * ((count * 2) + 1), end="")
+                print(" " * (i * 2), end="")
+            else:
+                print(termcolor.colored("*", 'blue') * ((count * 2) + 1), end="")
+                print(" " * (i * 2), end="")
     else:
         for j in range(num_di-1):
-            print("*" * ((i * 2) - 1), end="")
-            print(" " * ((count * 2)), end="")
-
+            if (j % 3 == 0):
+                print(termcolor.colored("*", 'yellow') * ((i * 2) - 1), end="")
+                print(" " * ((count * 2)), end="")
+            elif (j % 3 == 1):
+                print(termcolor.colored("*", 'green') * ((i * 2) - 1), end="")
+                print(" " * ((count * 2)), end="")
+            else:
+                print(termcolor.colored("*", 'blue') * ((i * 2) - 1), end="")
+                print(" " * ((count * 2)), end="")
 def pattern_d():
     delay = float(input("Input Delay: "))
     num_space = 0
@@ -86,14 +104,14 @@ def pattern_d():
         if (count_round < 30):
             print(" " * num_space, end="")
             num_space += 1
-            print("***", end="")
+            print(termcolor.colored("***", 'red'), end="")
             print(" " * ((max_conner * 2)), end="")
             max_conner -= 1
-            print("***")
+            print(termcolor.colored("***", 'blue'))
         if (count_round >= 30):
             print(" " * num_space, end="")
             num_space -= 1
-            print("***", end="")
+            print(termcolor.colored("***", 'green'), end="")
             if (count_round == (30 * 2)):
                 max_conner = 30
                 count_round = 0
@@ -102,6 +120,6 @@ def pattern_d():
             else:
                 print(" " * ((max_conner * 2)), end="")
                 max_conner += 1
-            print("***")
+            print(termcolor.colored("***", 'yellow'))
 
 showPicture()
