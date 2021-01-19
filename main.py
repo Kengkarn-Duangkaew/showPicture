@@ -50,11 +50,11 @@ def pattern_c():
             printDiamond(i, count, num_di, 1)
             count += 1
             if (i == num_line):
-                print(termcolor.colored("*", 'yellow') * count, end="")
+                print(termcolor.colored("*", 'red') * count, end="")
                 print("")
             if (i <= num_line - 1):
                 count_2 += 1
-                print(termcolor.colored("*", 'yellow') * ((count_2 * 2) + 1))
+                print(termcolor.colored("*", 'red') * ((count_2 * 2) + 1))
         count = 0
         count_2 = num_line+1
         for i in range(num_line+1, 0, -1):
@@ -63,18 +63,18 @@ def pattern_c():
             printDiamond(i, count, num_di, 2)
             count += 1
             if (i == num_line+1):
-                print(termcolor.colored("*", 'yellow') * ((num_line * 2) + 1), end="")
+                print(termcolor.colored("*", 'red') * ((num_line * 2) + 1), end="")
                 print("")
             if (i <= num_line):
                 count_2 -= 1
-                print(termcolor.colored("*", 'yellow') * ((count_2 * 2) - 1))
+                print(termcolor.colored("*", 'red') * ((count_2 * 2) - 1))
 
 def printDiamond(i, count, num_di, checkUpDown):
     # 1=Up, 2=Down
     if (checkUpDown == 1):
         for j in range(num_di-1):
             if (j % 3 == 0):
-                print(termcolor.colored("*", 'yellow') * ((count * 2) + 1), end="")
+                print(termcolor.colored("*", 'red') * ((count * 2) + 1), end="")
                 print(" " * (i * 2), end="")
             elif (j % 3 == 1):
                 print(termcolor.colored("*", 'green') * ((count * 2) + 1), end="")
@@ -85,7 +85,7 @@ def printDiamond(i, count, num_di, checkUpDown):
     else:
         for j in range(num_di-1):
             if (j % 3 == 0):
-                print(termcolor.colored("*", 'yellow') * ((i * 2) - 1), end="")
+                print(termcolor.colored("*", 'red') * ((i * 2) - 1), end="")
                 print(" " * ((count * 2)), end="")
             elif (j % 3 == 1):
                 print(termcolor.colored("*", 'green') * ((i * 2) - 1), end="")
