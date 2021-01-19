@@ -94,12 +94,14 @@ def pattern_d():
             print(" " * num_space, end="")
             num_space -= 1
             print("***", end="")
-            print(" " * ((max_conner * 2)), end="")
-            max_conner += 1
             if (count_round == (30 * 2)):
                 max_conner = 30
                 count_round = 0
                 num_space = 0
+                print(" " * ((max_conner * 2)), end="")
+            else:
+                print(" " * ((max_conner * 2)), end="")
+                max_conner += 1
             print("***")
 
 showPicture()
