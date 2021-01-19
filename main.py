@@ -5,28 +5,32 @@
 import time
 def showPicture():
     pattern_input = int(input("Input Pattern: "))
-    num_line = int(input("Please input line number: "))
     if (pattern_input == 1):
-        pattern_a(num_line)
+        pattern_a()
     elif (pattern_input == 2):
-        pattern_b(num_line)
+        pattern_b()
     elif (pattern_input == 3):
-        pattern_c(num_line)
+        pattern_c()
+    elif (pattern_input == 4):
+        pattern_d()
 
 
-def pattern_a(num_line):
+def pattern_a():
+    num_line = int(input("Please input line number: "))
     for i in range(1, num_line):
         print("*" * i)
 
 
-def pattern_b(num_line):
+def pattern_b():
+    num_line = int(input("Please input line number: "))
     for i in range(1, num_line):
         print("*" * i)
     for i in range(num_line, 0, -1):
         print("*" * i)
 
 
-def pattern_c(num_line):
+def pattern_c():
+    num_line = int(input("Please input line number: "))
     count = 0
     count_2 = 0
     num_round = int(input("Input Round: "))
@@ -70,5 +74,32 @@ def printDiamond(i, count, num_di, checkUpDown):
         for j in range(num_di-1):
             print("*" * ((i * 2) - 1), end="")
             print(" " * ((count * 2)), end="")
+
+def pattern_d():
+    delay = float(input("Input Delay: "))
+    num_space = 0
+    count_round = 0
+    max_conner = 30
+    while (True):
+        count_round += 1
+        time.sleep(delay)
+        if (count_round < 30):
+            print(" " * num_space, end="")
+            num_space += 1
+            print("***", end="")
+            print(" " * ((max_conner * 2)), end="")
+            max_conner -= 1
+            print("***")
+        if (count_round >= 30):
+            print(" " * num_space, end="")
+            num_space -= 1
+            print("***", end="")
+            print(" " * ((max_conner * 2)), end="")
+            max_conner += 1
+            if (count_round == (30 * 2)):
+                max_conner = 30
+                count_round = 0
+                num_space = 0
+            print("***")
 
 showPicture()
